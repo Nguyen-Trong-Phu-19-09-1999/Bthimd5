@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import DisplayProducts from "./CRUD/Display";
+import Create from "./CRUD/Create";
+import Update from "./CRUD/Update";
+import {Route, Routes} from "react-router-dom";
+import View from "./CRUD/View";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Routes>
+                <Route>
+                    <Route path={"/"} element={<DisplayProducts></DisplayProducts>}></Route>
+                    <Route path={"/Create"} element={<Create></Create>}></Route>
+                    <Route path={"/Update/:id"} element={<Update></Update>}></Route>
+                    <Route path={"/View/:id"} element={<View></View>}></Route>
+                  </Route>
+            </Routes>
+        </>
+);
 }
 
 export default App;
